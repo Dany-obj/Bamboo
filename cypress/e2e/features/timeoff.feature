@@ -12,9 +12,7 @@ Feature: Time-off Request in BambooHR
     Then The user should be redirect to My info page
 
   Scenario: Successfully denying a time-off request
-    Given The user is on the Time-Off page
+    Given The user is on the Time-Off request page
     When The user views a time-off request
     And The user clicks on Deny
     Then The user should see a modal with the title "Denied Time Off Request"
-
- 

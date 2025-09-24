@@ -21,11 +21,12 @@ When("The user fullfill the form", () => {
     .click();
   cy.get(SELECTORS.timeoff.selectCategory, { timeout: TIMEOUT })
     .should("be.visible")
-    .eq(1)
+    .eq(2)
     .click();
   cy.wait(TIMEOUT);
   cy.get(SELECTORS.timeoff.amount, { timeout: TIMEOUT })
     .should("be.visible")
+  cy.get(SELECTORS.timeoff.note).should("be.visible").type("test");
 });
 When("The user submits the timeoff request", () => {
   cy.wait(TIMEOUT);
@@ -38,13 +39,9 @@ Then("The user should be redirect to My info page", () => {
     cy.url().should('contains', '/employees/pto/?id=8');
 });
 
-Given("The user is on the Time-Off page", () => {
-  cy.get(SELECTORS.timeoff.utilRequestButton, { timeout: TIMEOUT })
-    .should("be.visible")
-    .click({force: true});
-    cy.get(SELECTORS.timeoff.timeoffRequestOption, { timeout: TIMEOUT })
-    .should("be.visible")
-    .click();
+Given("The user is on the Time-Off request page", () => {
+    cy.get(SELECTORS.timeoff.headerBoxIcon).should('be.visible').click();
+    cy.get(SELECTORS.timeoff.timeRequestsOption).should('be.visible').click();
 });
 When("The user views a time-off request", () => {
   cy.wait(TIMEOUT);
