@@ -1,8 +1,8 @@
 export const TEST_DATA = {
   users: {
     validUser: {
-      username: "laovejona100@gmail.com",
-      password: "Objdep100",
+      username: "danitzamayguasola1@gmail.com",
+      password: "Pruebafinal/100",
     },
     invalidUser: {
       usernameInvalid: "invalid@test.com",

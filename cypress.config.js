@@ -28,7 +28,7 @@ module.exports = defineConfig({
       return config;
     },
     specPattern:"cypress/e2e/features/*.feature",
-    baseUrl: "https://objdep.bamboohr.com/login.php",
+    baseUrl: "https://objfinal.bamboohr.com/",
     chromeWebSecurity: false,
     defaultCommandTimeout: 2000,
     video: false,
