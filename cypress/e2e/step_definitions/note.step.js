@@ -11,8 +11,8 @@ Given("The user is on the note page",() => {
     .should("be.visible").click();
 })
 When("The user clicks and fullfill a note", () => {
+    cy.wait(TIMEOUT)
     cy.get(SELECTORS.notesTab.addnoteField,{timeout:TIMEOUT}).should("be.visible").type(TEST_DATA.notes.addNote)
- 
 })
 
  When("The user submits the note", () => {

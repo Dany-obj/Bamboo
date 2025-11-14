@@ -13,7 +13,7 @@ Given("The user is on the Benefits page",() => {
     });
     
 When("The user clicks on Edit Benefit", () => {
-    cy.get(SELECTORS.benefitsTab.benefitCard, { timeout: TIMEOUT }).eq(0).find(SELECTORS.benefitsTab.benefitButton).find("button").should("be.visible").click({force: true})
+    cy.get(SELECTORS.benefitsTab.benefitCard, { timeout: TIMEOUT }).eq(0).should("be.visible").click({force: true})
     cy.get(SELECTORS.benefitsTab.menuitem, { timeout: TIMEOUT }).eq(0).should("be.visible").click()
     cy.wait(TIMEOUT)
 })
@@ -21,14 +21,15 @@ When("The user clicks on Edit Benefit", () => {
     cy.get(SELECTORS.benefitsTab.datewaivedField,{timeout:TIMEOUT}).should("be.visible").type(TEST_DATA.benefits.coverageDateEdit)
  })
  When("The user submits the benefit information", () => {
-    cy.get(SELECTORS.benefitsTab.saveButton, { timeout: TIMEOUT }).eq(0).should("be.visible").click()
+    cy.get(SELECTORS.benefitsTab.saveButton, { timeout: TIMEOUT }).contains('Save').should('be.visible').click({ force: true });
  })
  Then("The user should see a confirmation message for benefits {string}", (message) => {
     cy.wait(3000)
     cy.contains('div', message).should("exist");
   })
   When("The user clicks on Enroll in Benefit", () => {
-    cy.get(SELECTORS.benefitsTab.benefitCard, { timeout: TIMEOUT }).eq(0).find(SELECTORS.benefitsTab.benefitButton).find("button").should("be.visible").click({force: true})
+    cy.wait(TIMEOUT)
+    cy.get(SELECTORS.benefitsTab.benefitCard, { timeout: TIMEOUT }).eq(0).should("be.visible").click({force: true})
     cy.get(SELECTORS.benefitsTab.menuitem, { timeout: TIMEOUT }).eq(1).should("be.visible").click()
     cy.wait(TIMEOUT)
  
@@ -40,7 +41,8 @@ When("The user clicks on Edit Benefit", () => {
  
 })
 When("The user clicks on Terminate Enrollment", () => {
-    cy.get(SELECTORS.benefitsTab.benefitCard, { timeout: TIMEOUT }).eq(0).find(SELECTORS.benefitsTab.benefitButton).find("button").should("be.visible").click({force: true})
+    cy.wait(TIMEOUT)
+    cy.get(SELECTORS.benefitsTab.benefitCard, { timeout: TIMEOUT }).eq(0).should("be.visible").click({force: true})
     cy.get(SELECTORS.benefitsTab.menuitem, { timeout: TIMEOUT }).eq(2).should("be.visible").click()
     cy.wait(TIMEOUT)
 })
