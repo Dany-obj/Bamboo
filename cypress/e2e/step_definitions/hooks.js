@@ -9,4 +9,6 @@ Before({ tags: "@loginRequired" }, () => {
     cy.get(SELECTORS.login.passwordField,{timeout:TIMEOUT}).should("be.visible").type(TEST_DATA.users.validUser.password)
     cy.get(SELECTORS.login.loginButton,{timeout:TIMEOUT}).should("be.visible").click()
     cy.contains('button', 'Yes, Trust this Browser').click();
+    cy.wait(TIMEOUT);
+    cy.get(SELECTORS.login.reminderLaterButton, { timeout: TIMEOUT }).click({ force: true });
 });

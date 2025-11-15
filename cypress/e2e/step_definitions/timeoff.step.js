@@ -10,7 +10,8 @@ Given("The user is on the timeoff request page", () => {
 });
 
 When("The user fullfill the form", () => {
-  cy.get(SELECTORS.timeoff.startDate, { timeout: 8000 })
+  cy.wait(TIMEOUT);
+  cy.get(SELECTORS.timeoff.startDate, { timeout: TIMEOUT })
     .should("be.visible")
     .type(TEST_DATA.timeoff.startDate);
   cy.get(SELECTORS.timeoff.endDate, { timeout: TIMEOUT })

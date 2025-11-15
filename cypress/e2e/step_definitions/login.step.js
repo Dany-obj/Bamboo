@@ -16,6 +16,8 @@ Given("The user is on the login page",() => {
 
   Then("The user should see the BambooHR dashboard", () => {
     cy.contains('button', 'Yes, Trust this Browser').click();
+    cy.wait(TIMEOUT);
+    cy.get(SELECTORS.login.reminderLaterButton, { timeout: TIMEOUT }).click({ force: true });
     cy.url().should('contains', '/home');
   })
   When("The user enters the invalid username and password", () => {

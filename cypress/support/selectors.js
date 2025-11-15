@@ -2,7 +2,8 @@ export const SELECTORS = {
     login: {
         emailField:"#lemail",
         passwordField:"#password",
-        loginButton:'.login-actions button[type="submit"]',
+        loginButton:'button[type="submit"][data-fabric-component="Button"]',
+        reminderLaterButton:'button[type="submit"][data-bi-id="recommend-passkeys-modal-remind-me-later"][data-fabric-component="Button"]'
 
     },
     pagetabs:{

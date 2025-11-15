@@ -1,5 +1,4 @@
 import { TIMEOUT } from "../../support";
-import { TEST_DATA } from "../../fixtures/test_data";
 import { SELECTORS } from "../../support/selectors";
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 
